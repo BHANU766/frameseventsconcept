@@ -32,7 +32,7 @@ public void scrolltoelementwithpause() throws InterruptedException {
 	
 	   for(int i=0;i<5;i++) {
 		   JavascriptExecutor js=(JavascriptExecutor) driver; //tyoecast webdriver to javascriptexecutor
-		   js.executeScript("window.scrollTo(0,document.body.scrollHeight");  //scroll down
+		   js.executeScript("window.scrollTo(0,document.body.scrollHeight)");  //scroll down
 		   Thread.sleep(3000);	
 	   }	      	  
 }

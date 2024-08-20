@@ -30,7 +30,7 @@ public void openurl() {
 @Test
 public void scrolldownandup() throws InterruptedException {
 	   JavascriptExecutor js=(JavascriptExecutor) driver; //tyoecast webdriver to javascriptexecutor
-	   js.executeScript("window.scrollTo(0,document.body.scrollHeight");  //scroll down
+	   js.executeScript("window.scrollTo(0,document.body.scrollHeight)");  //scroll down
 	   Thread.sleep(3000);
 	   
 	   js.executeScript("window.scrollTo(0,0)");  //scroll up

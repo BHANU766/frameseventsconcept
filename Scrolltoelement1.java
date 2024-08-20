@@ -1,7 +1,9 @@
 package com.scrollingevents;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
@@ -10,9 +12,9 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Infinitescroll {
+public class Scrolltoelement1 {
 
-	   protected static String url="https://the-internet.herokuapp.com/infinite_scroll";
+	   protected static String url="https://www.selenium.dev/";
 	   WebDriver driver;
 
 @BeforeSuite 
@@ -28,17 +30,16 @@ public void openurl() {
 }
 
 @Test
-public void infitescroll() throws InterruptedException {
-	 for(int i=0;i<5;i++) {
-		   JavascriptExecutor js=(JavascriptExecutor) driver; //tyoecast webdriver to javascriptexecutor
-		   js.executeScript("window.scrollTo(0,document.body.scrollHeight)");  //scroll down
-		   Thread.sleep(3000);	
-	   }
+public void scrolltoelement() throws InterruptedException {
+	 JavascriptExecutor js=(JavascriptExecutor) driver;
+	 WebElement elementlocator=driver.findElement(By.xpath("(//*[.='News'])[3]"));
+	 js.executeScript("arguments[0].scrollIntoView(true)",elementlocator);
+	 Thread.sleep(4000);
+	
 }
 
 @AfterSuite
 public void closechromebrowser() {
 	  driver.quit();
 }
-
 }

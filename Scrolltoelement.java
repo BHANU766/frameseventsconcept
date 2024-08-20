@@ -32,9 +32,9 @@ public void openurl() {
 @Test
 public void scrolltoelement() throws InterruptedException {
 	 JavascriptExecutor js=(JavascriptExecutor) driver;
-	 WebElement elementlocator=driver.findElement(By.xpath("//*[starts-with(text(),'Make Money with Us')]"));
-	 js.executeScript("argument[0].scrollIntoView(true)",elementlocator);
-	 Thread.sleep(3000);
+	 WebElement elementlocator=driver.findElement(By.xpath("//div[starts-with(text(),'Make Money with Us')]"));
+	 js.executeScript("arguments[0].scrollIntoView(true)",elementlocator);
+	 Thread.sleep(4000);
 	
 }
 
@@ -42,4 +42,5 @@ public void scrolltoelement() throws InterruptedException {
 public void closechromebrowser() {
 	  driver.quit();
 }
+
 }

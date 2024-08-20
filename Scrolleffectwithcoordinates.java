@@ -10,9 +10,9 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Infinitescroll {
+public class Scrolleffectwithcoordinates {
 
-	   protected static String url="https://the-internet.herokuapp.com/infinite_scroll";
+	   protected static String url="https://www.selenium.dev/";
 	   WebDriver driver;
 
 @BeforeSuite 
@@ -28,17 +28,30 @@ public void openurl() {
 }
 
 @Test
-public void infitescroll() throws InterruptedException {
-	 for(int i=0;i<5;i++) {
-		   JavascriptExecutor js=(JavascriptExecutor) driver; //tyoecast webdriver to javascriptexecutor
-		   js.executeScript("window.scrollTo(0,document.body.scrollHeight)");  //scroll down
-		   Thread.sleep(3000);	
-	   }
+public void scrollwithcoordinates() throws InterruptedException {
+	JavascriptExecutor js=(JavascriptExecutor) driver;
+	//scroll down by 150px for 11 times
+	for(int i=0;i<10;i++ ) {
+		js.executeScript("window.scrollBy(0,150)");
+		Thread.sleep(1000);
+	}
+	
+	//scroll up
+	for(int i=0;i<10;i++ ) {
+		js.executeScript("window.scrollBy(0,-150)");
+		Thread.sleep(1000);
+	}
+}
+
+@Test
+public void bottomofpage() throws InterruptedException {
+	JavascriptExecutor js=(JavascriptExecutor) driver;
+	js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
+	Thread.sleep(3000);
 }
 
 @AfterSuite
 public void closechromebrowser() {
 	  driver.quit();
-}
-
+}	
 }
